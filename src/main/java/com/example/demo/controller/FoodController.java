@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.Food;
+import com.example.demo.service.FoodService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,6 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/food")
 public class FoodController {
 
+    private final FoodService foodService;
+
+    @Autowired //생성자 사용해서 DI
+    public FoodController(FoodService foodService) {
+        this.foodService = foodService;
+    }
 
     //음식 조회
     @GetMapping("/foods")
@@ -22,13 +30,13 @@ public class FoodController {
     }
 
     //음식수정
-    @PutMapping("/{foodId}/edit")
+    @PutMapping("/{foodId}")
     public Food edit(String foodId) {
         return new Food();
     }
 
     //음식 삭제
-    @DeleteMapping("/{foodId}/delete")
+    @DeleteMapping("/{foodId}")
     public void delete(String foodId) {
 
     }
