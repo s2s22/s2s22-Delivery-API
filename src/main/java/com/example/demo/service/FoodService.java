@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Food;
+import com.example.demo.domain.FoodDto;
 import com.example.demo.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class FoodService {
 
     private final FoodRepository foodRepository;
@@ -14,4 +17,12 @@ public class FoodService {
     }
 
 
+    public Food findAll() {
+        return foodRepository.findAll();
+    }
+
+    //dto를 위한 저장구현
+    public String save(FoodDto foodDto) {
+        return "ok";
+    }
 }

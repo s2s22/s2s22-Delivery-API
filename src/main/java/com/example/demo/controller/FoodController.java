@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.Food;
+import com.example.demo.domain.FoodDto;
 import com.example.demo.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,8 +26,8 @@ public class FoodController {
 
     //음식 등록
     @PostMapping("/save")
-    public String save(Food food) {
-        return "음식아이디";
+    public String save(FoodDto foodDto) { //수정 view에서 받아오는 데이터 dto로
+        return foodService.save(foodDto);
     }
 
     //음식수정
