@@ -22,7 +22,7 @@ public class FoodService {
     }
 
     //dto를 위한 저장구현
-    public String save(FoodDto foodDto) {
-        return "ok";
+    public void save(FoodDto foodDto) {
+        foodRepository.save(foodDto);
     }
 }
