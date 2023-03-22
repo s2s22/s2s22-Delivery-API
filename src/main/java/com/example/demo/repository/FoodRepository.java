@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 
+
 @Repository
+
 public class FoodRepository {
 
 
@@ -20,7 +22,6 @@ public class FoodRepository {
     public Food findAll() {
         return  new Food();
     }
-
 
     public void save(FoodDto foodDto) {
 

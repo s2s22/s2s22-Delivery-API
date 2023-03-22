@@ -26,8 +26,8 @@ public class FoodController {
 
     //음식 등록
     @PostMapping("/save")
-    public String save(FoodDto foodDto) { //수정 view에서 받아오는 데이터 dto로
-        return foodService.save(foodDto);
+    public void save(FoodDto foodDto) { //수정 view에서 받아오는 데이터 dto로
+         foodService.save(foodDto);
     }
 
     //음식수정
