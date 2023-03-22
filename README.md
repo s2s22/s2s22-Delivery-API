@@ -8,7 +8,7 @@
 
 1-1 )ERD    
 
-![image](https://user-images.githubusercontent.com/22412397/226912886-6fd178ce-0998-4866-b4a5-558450fdd4c5.png)
+![image](https://user-images.githubusercontent.com/22412397/226937079-4f9beea3-0a56-4d49-bcdf-664116c0cff4.png)
 
 1-2) url 설정   
   음식 : 구분을 위해 클래스에 @RequestMapping("/food")를 선언   
