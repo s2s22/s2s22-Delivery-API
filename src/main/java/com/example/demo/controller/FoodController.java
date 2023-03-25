@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.CategoryDto;
 import com.example.demo.domain.Food;
 import com.example.demo.domain.FoodDto;
 import com.example.demo.service.FoodService;
@@ -19,32 +20,28 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-    //음식 전체 조회
     @GetMapping("/foods")
     public List<Food> findAll() {
         return foodService.findAll();
     }
 
-    //음식 등록
     @PostMapping("/save")
-    public void save(FoodDto foodDto) { //수정 view에서 받아오는 데이터 dto로
-         foodService.save(foodDto);
+    public void save(FoodDto foodDto, @RequestParam("categoryId") String categoryId) {
+         foodService.save(foodDto, categoryId);
     }
 
-    //음식수정
     @PutMapping("/{foodId}")
     public Food edit(String foodId) {
         return new Food();
     }
 
-    //음식 삭제
     @DeleteMapping("/{foodId}")
-    public void delete(String foodId) {
-
+    public void deleteById(String foodId) {
+        foodService.deleteById(foodId);
     }
 
-    //특정 음식 조회
-    public Food find(String foodId) {
-        return foodService.find(foodId);
+    @GetMapping("/{foodId}")
+    public Food findById(@PathVariable String foodId) {
+        return foodService.findById(foodId);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.Category;
+import com.example.demo.domain.CategoryDto;
 import com.example.demo.domain.Food;
 import com.example.demo.domain.FoodDto;
 import com.example.demo.repository.FoodRepository;
@@ -26,13 +28,16 @@ public class FoodService {
         return foodRepository.findAll();
     }
 
-    public Food find(String foodId) {
-        return foodRepository.find(foodId);
+    public Food findById(String foodId) {
+        return foodRepository.findById(foodId);
     }
 
-    //dto를 위한 저장구현
     @Transactional
-    public void save(FoodDto foodDto) {
+    public void save(FoodDto foodDto, String categoryId) {
         foodRepository.save(foodDto);
+    }
+
+    public void deleteById(String foodId) {
+        foodRepository.deleteById(foodId);
     }
 }

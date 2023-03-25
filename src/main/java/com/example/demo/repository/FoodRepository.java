@@ -28,12 +28,18 @@ public class FoodRepository {
         em.persist(foodDto.toEntity());
     }
 
-    public Food find(String foodId) {
+    public Food findById(String foodId) {
         return em.find(Food.class, foodId);
     }
+
     public void edit(String foodId, FoodDto foodDto) {
-        Food food = find(foodId);
-        food.updateFood(foodDto.getName(), foodDto.getQuantity(), foodDto.getPrice()); //영속성에 의해 em 처리없이 자동 update문 생성
+        Food food = findById(foodId);
+        food.updateFood(foodDto); //영속성에 의해 em 처리없이 자동 update문 생성
+    }
+
+    public void deleteById(String foodId) {
+        em.createQuery("delete from Food f where f.food_id = :foodId", Food.class)
+                .setParameter("foodId", foodId);
     }
 
 }

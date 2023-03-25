@@ -36,9 +36,14 @@ public class Food {
         this.price = price;
     }
 
-    public void updateFood(String name , Long quantity, BigDecimal price) {
-        this.name = name;
-        this.quantity = quantity;
-        this.price = price;
+    public void updateFood(FoodDto foodDto) {
+        this.name = foodDto.getName();
+        this.quantity = foodDto.getQuantity();
+        this.price = foodDto.getPrice();
     }
+
+    public void setCategory(CategoryDto categoryDto) {
+        category.setCategory(categoryDto);
+    }
+
 }
