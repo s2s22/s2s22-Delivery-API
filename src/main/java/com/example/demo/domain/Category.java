@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Category {
 
     @Id @GeneratedValue
@@ -19,10 +21,8 @@ public class Category {
     private String name;
 
     @Builder
-    public Category(Long id, String name, List<Food> foods) {
-        this.id = id;
+    public Category(String name) {
         this.name = name;
-        this.foods = foods;
     }
 
     @OneToMany(mappedBy = "category")

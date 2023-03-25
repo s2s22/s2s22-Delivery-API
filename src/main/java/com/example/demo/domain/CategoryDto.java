@@ -2,10 +2,11 @@ package com.example.demo.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
-
+@NoArgsConstructor
 public class CategoryDto {
 
     private String name;
@@ -17,6 +18,8 @@ public class CategoryDto {
     }
 
     public Category toEntity() {
-        return Category.builder().name(name).build();
+        return Category.builder()
+                .name(name)
+                .build();
     }
 }

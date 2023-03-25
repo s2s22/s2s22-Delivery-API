@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import com.example.demo.domain.Food;
 import com.example.demo.domain.FoodDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import java.util.List;
 
 
 @Repository
+@Slf4j
 public class FoodRepository {
 
     private final EntityManager em;

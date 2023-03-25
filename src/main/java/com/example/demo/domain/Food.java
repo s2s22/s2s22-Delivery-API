@@ -30,11 +30,15 @@ public class Food {
     private Category category;
 
     @Builder
-    public Food(String name, Long quantity, BigDecimal price) {
+    public Food(Long id, String name, Long quantity, BigDecimal price, Category category) {
+        this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        this.category = category;
     }
+
+
 
     public void updateFood(FoodDto foodDto) {
         this.name = foodDto.getName();
@@ -42,8 +46,7 @@ public class Food {
         this.price = foodDto.getPrice();
     }
 
-    public void setCategory(CategoryDto categoryDto) {
-        category.setCategory(categoryDto);
-    }
+
+
 
 }
