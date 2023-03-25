@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 
@@ -20,8 +22,12 @@ public class FoodService {
     }
 
 
-    public Food findAll() {
+    public List<Food> findAll() {
         return foodRepository.findAll();
+    }
+
+    public Food find(String foodId) {
+        return foodRepository.find(foodId);
     }
 
     //dto를 위한 저장구현

@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -28,8 +25,18 @@ public class Food {
     @Column(name = "food_price")
     private BigDecimal price; //가격
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     @Builder
     public Food(String name, Long quantity, BigDecimal price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    public void updateFood(String name , Long quantity, BigDecimal price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;

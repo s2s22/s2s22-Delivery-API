@@ -7,21 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/food")
 public class FoodController {
 
     private final FoodService foodService;
 
-    @Autowired //생성자 사용해서 DI
     public FoodController(FoodService foodService) {
         this.foodService = foodService;
     }
 
-    //음식 조회
+    //음식 전체 조회
     @GetMapping("/foods")
-    public Food findAll() {
-        return new Food();
+    public List<Food> findAll() {
+        return foodService.findAll();
     }
 
     //음식 등록
@@ -40,5 +41,10 @@ public class FoodController {
     @DeleteMapping("/{foodId}")
     public void delete(String foodId) {
 
+    }
+
+    //특정 음식 조회
+    public Food find(String foodId) {
+        return foodService.find(foodId);
     }
 }
