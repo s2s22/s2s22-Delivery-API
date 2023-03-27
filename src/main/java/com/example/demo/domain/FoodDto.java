@@ -3,10 +3,12 @@ package com.example.demo.domain;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
+@NoArgsConstructor
 public class FoodDto {
 
     //화면에서 필요한게 뭐가있을까?
@@ -21,20 +23,26 @@ public class FoodDto {
 
     private BigDecimal price; //가격
 
+    private Category category;
 
-    @Builder
-    public FoodDto(String name, Long quantity, BigDecimal price) {
 
+    public FoodDto(String name, Long quantity, BigDecimal price, Category category) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        this.category = category;
     }
+
+    @Builder
+
 
     //dto -> entity
     public Food toEntity() {
-        return Food.builder().name(name)
-                .quantity(quantity)
+        return Food.builder()
+                .name(name)
                 .price(price)
+                .quantity(quantity)
+                .category(category)
                 .build();
     }
 
