@@ -23,26 +23,25 @@ public class FoodService {
     private final FoodRepository foodRepository;
     private final CategoryRepository categoryRepository;
 
-
-
-
     public List<Food> findAll() {
         return foodRepository.findAll();
     }
 
-    public Food findById(String foodId) {
+    public Food findById(Long foodId) {
         return foodRepository.findById(foodId);
     }
 
     @Transactional
-    public void save(FoodDto foodDto, Long categoryId) {
+    public void save(FoodDto foodDto) {
 
-        Category category = categoryRepository.findById(categoryId);
-        foodDto.setCategory(category);
         foodRepository.save(foodDto);
     }
-
-    public void deleteById(String foodId) {
+    public void deleteById(Long foodId) {
         foodRepository.deleteById(foodId);
+    }
+
+    @Transactional
+    public void edit(Long foodId, FoodDto foodDto) {
+        foodRepository.edit(foodId, foodDto);
     }
 }

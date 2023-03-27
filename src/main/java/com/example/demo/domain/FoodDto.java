@@ -34,8 +34,6 @@ public class FoodDto {
     }
 
     @Builder
-
-
     //dto -> entity
     public Food toEntity() {
         return Food.builder()
@@ -46,4 +44,9 @@ public class FoodDto {
                 .build();
     }
 
+    public void updateFood(FoodDto foodDto) {
+        this.name = foodDto.getName();
+        this.quantity = foodDto.getQuantity();
+        this.price = foodDto.getPrice();
+    }
 }

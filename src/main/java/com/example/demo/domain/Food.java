@@ -14,15 +14,11 @@ import java.math.BigDecimal;
 public class Food {
 
     @Id @GeneratedValue
-    @Column(name = "food_id")
     private Long id;
-    @Column(name = "food_name")
     private String name;
 
-    @Column(name = "food_quantity")
     private Long quantity; //재고
 
-    @Column(name = "food_price")
     private BigDecimal price; //가격
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -37,16 +33,5 @@ public class Food {
         this.price = price;
         this.category = category;
     }
-
-
-
-    public void updateFood(FoodDto foodDto) {
-        this.name = foodDto.getName();
-        this.quantity = foodDto.getQuantity();
-        this.price = foodDto.getPrice();
-    }
-
-
-
 
 }
