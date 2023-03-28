@@ -33,7 +33,9 @@ public class FoodService {
 
     @Transactional
     public void save(FoodDto foodDto) {
-
+        Category category = categoryRepository.findById(foodDto.getCategory().getId());
+        //Category category = categoryRepository.findById(1l);
+        foodDto.setCategory(category);
         foodRepository.save(foodDto);
     }
     public void deleteById(Long foodId) {

@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,8 +28,7 @@ public class Food {
     private Category category;
 
     @Builder
-    public Food(Long id, String name, Long quantity, BigDecimal price, Category category) {
-        this.id = id;
+    public Food(String name, Long quantity, BigDecimal price, Category category) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
