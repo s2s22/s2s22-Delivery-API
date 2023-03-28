@@ -28,22 +28,22 @@ public class FoodController {
     }
 
     @PostMapping("/save")
-    public void save(FoodDto foodDto, @RequestParam("categoryId") Long categoryId) {
-         foodService.save(foodDto, categoryId);
+    public void save(FoodDto foodDto) {
+         foodService.save(foodDto);
     }
 
     @PutMapping("/{foodId}")
-    public Food edit(String foodId) {
-        return new Food();
+    public void edit(@PathVariable Long foodId, FoodDto foodDto) {
+        foodService.edit(foodId, foodDto);
     }
 
     @DeleteMapping("/{foodId}")
-    public void deleteById(String foodId) {
+    public void deleteById(@PathVariable Long foodId) {
         foodService.deleteById(foodId);
     }
 
     @GetMapping("/{foodId}")
-    public Food findById(@PathVariable String foodId) {
+    public Food findById(@PathVariable Long foodId) {
         return foodService.findById(foodId);
     }
 }

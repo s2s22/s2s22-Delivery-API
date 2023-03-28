@@ -28,7 +28,4 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Food> foods  = new ArrayList<>();
 
-    public void setCategory(CategoryDto categoryDto) {
-        this.name = categoryDto.getName();
-    }
 }
