@@ -39,13 +39,8 @@ public class FoodRepository {
         return em.find(Food.class, foodId);
     }
 
-    public void edit(Long foodId, FoodDto foodDto) {
-        Food food = findById(foodId);
-        FoodDto foodToDto = modelMapper.map(food, FoodDto.class);
-        log.info("객체1 {}" ,food);
-        foodToDto.updateFood(foodDto);
-        log.info("객체2 {}" ,foodToDto);
-
+    public void edit(FoodDto foodDto) {
+        foodDto.updateFood(foodDto.toEntity());
     }
 
     public void deleteById(Long foodId) {

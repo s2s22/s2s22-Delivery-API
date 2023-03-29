@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -24,4 +25,11 @@ public class OrderFood {
     @JoinColumn(name = "food_id")
     private Food food;
 
+    @Builder
+    public OrderFood(int count, Long totalPrice, Order order, Food food) {
+        this.count = count;
+        this.totalPrice = totalPrice;
+        this.order = order;
+        this.food = food;
+    }
 }

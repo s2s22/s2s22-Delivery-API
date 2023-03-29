@@ -44,9 +44,10 @@ public class FoodDto {
                 .build();
     }
 
-    public void updateFood(FoodDto foodDto) {
-        this.name = foodDto.getName();
-        this.quantity = foodDto.getQuantity();
-        this.price = foodDto.getPrice();
+    public void updateFood(Food food) {
+        this.name = food.getName();
+        this.quantity = food.getQuantity();
+        this.price = food.getPrice();
+        this.category = food.getCategory();
     }
 }
