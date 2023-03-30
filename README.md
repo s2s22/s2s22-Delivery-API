@@ -23,12 +23,12 @@
 2-1 ) ERD
 
 2-2 ) URL 설정
-  주문 : 구분을 위해 클래스에 @RequestMapping("order")를 선언
-  주문 전체 조회 : @GetMapping("/orders")
-  주문 Id로 조회 : @GetMapping("/{orderId}")
-  주문등록 : @PostMapping("/save")
-  주문수정 : 
-  주문삭제 : @DeleteMapping("/{orderId}")
+  주문 : 구분을 위해 클래스에 @RequestMapping("order")를 선언    
+  주문 전체 조회 : @GetMapping("/orders")     
+  주문 Id로 조회 : @GetMapping("/{orderId}")    
+  주문등록 : @PostMapping("/save")     
+  주문수정 :      
+  주문삭제 : @DeleteMapping("/{orderId}")    
 
 
 
