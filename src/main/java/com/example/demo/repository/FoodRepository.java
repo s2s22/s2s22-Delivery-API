@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -39,8 +40,12 @@ public class FoodRepository {
         return em.find(Food.class, foodId);
     }
 
-    public void edit(FoodDto foodDto) {
-        foodDto.updateFood(foodDto.toEntity());
+    @Transactional
+    public void edit(Long foodId, FoodDto foodDto) {
+
+        Food food = findById(foodId);
+        log.info("주소 {}", food);
+        foodDto.updateFood(food, foodDto);
     }
 
     public void deleteById(Long foodId) {

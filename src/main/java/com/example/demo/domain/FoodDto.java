@@ -1,14 +1,16 @@
 package com.example.demo.domain;
 
+import com.example.demo.repository.FoodRepository;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
+@Slf4j
 public class FoodDto {
 
     //화면에서 필요한게 뭐가있을까?
@@ -25,12 +27,14 @@ public class FoodDto {
 
     private Category category;
 
-
-    public FoodDto(String name, Long quantity, BigDecimal price, Category category) {
-        this.name = name;
-        this.quantity = quantity;
-        this.price = price;
-        this.category = category;
+    public void updateFood(Food food, FoodDto foodDto) {
+        log.info("야 값 {}", food);
+        food.builder()
+                .name(foodDto.getName())
+                .price(price)
+                .quantity(foodDto.getQuantity())
+                .category(category)
+                .build();
     }
 
     @Builder
@@ -44,10 +48,4 @@ public class FoodDto {
                 .build();
     }
 
-    public void updateFood(Food food) {
-        this.name = food.getName();
-        this.quantity = food.getQuantity();
-        this.price = food.getPrice();
-        this.category = food.getCategory();
-    }
 }

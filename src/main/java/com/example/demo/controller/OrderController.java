@@ -37,4 +37,9 @@ public class OrderController {
     public void deleteById(Long orderId) {
         orderService.deleteById(orderId);
     }
+
+    @PutMapping("{orderId}")
+    public void edit(@PathVariable Long id, OrderFoodDto orderFoodDto) {
+
+    }
 }

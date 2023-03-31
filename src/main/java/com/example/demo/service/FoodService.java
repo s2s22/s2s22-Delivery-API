@@ -44,7 +44,7 @@ public class FoodService {
     }
 
     @Transactional
-    public void edit(FoodDto foodDto) {
-        foodRepository.edit(foodDto);
+    public void edit(Long foodId,FoodDto foodDto) {
+        foodRepository.edit(foodId, foodDto);
     }
 }
