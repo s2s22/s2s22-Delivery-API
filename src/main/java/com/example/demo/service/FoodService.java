@@ -9,6 +9,7 @@ import com.example.demo.repository.FoodRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,7 +44,7 @@ public class FoodService {
     }
 
     @Transactional
-    public void edit(Long foodId, FoodDto foodDto) {
-        foodRepository.edit(foodId, foodDto);
+    public void edit(FoodDto foodDto) {
+        foodRepository.edit(foodDto);
     }
 }

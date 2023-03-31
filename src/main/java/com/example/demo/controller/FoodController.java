@@ -34,7 +34,7 @@ public class FoodController {
 
     @PutMapping("/{foodId}")
     public void edit(@PathVariable Long foodId, FoodDto foodDto) {
-        foodService.edit(foodId, foodDto);
+        foodService.edit(foodDto);
     }
 
     @DeleteMapping("/{foodId}")
