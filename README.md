@@ -29,7 +29,7 @@
   주문 전체 조회 : @GetMapping("/orders")     
   주문 Id로 조회 : @GetMapping("/{orderId}")    
   주문등록 : @PostMapping("/save")     
-  주문수정 :      
+  주문수정 : @PutMapping("/{orderId}") 
   주문삭제 : @DeleteMapping("/{orderId}")    
   
 3. 배달 API
