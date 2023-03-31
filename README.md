@@ -21,6 +21,8 @@
 2. 주문관리API
 
 2-1 ) ERD
+![image](https://user-images.githubusercontent.com/22412397/229194648-129ae88f-96c3-4d8c-a53a-0eb709cb16a8.png)
+
 
 2-2 ) URL 설정
   주문 : 구분을 위해 클래스에 @RequestMapping("order")를 선언    
@@ -29,6 +31,12 @@
   주문등록 : @PostMapping("/save")     
   주문수정 :      
   주문삭제 : @DeleteMapping("/{orderId}")    
+  
+3. 배달 API
+
+3-1 ) ERD
+![image](https://user-images.githubusercontent.com/22412397/229195211-c5171dc2-cf56-421f-9877-3590e7a85783.png)
+
 
 
 
