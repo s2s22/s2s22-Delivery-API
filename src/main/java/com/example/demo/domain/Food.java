@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,6 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor
+@Slf4j
 public class Food {
 
     @Id @GeneratedValue
@@ -29,10 +31,14 @@ public class Food {
 
     @Builder
     public Food(String name, Long quantity, BigDecimal price, Category category) {
-        this.name = name;
-        this.quantity = quantity;
-        this.price = price;
-        this.category = category;
+        log.info("값 {}" , quantity);
+            this.name = name;
+            this.quantity = quantity;
+            this.price = price;
+            this.category = category;
+        }
+
     }
 
-}
+
+
