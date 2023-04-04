@@ -31,7 +31,6 @@ public class Food {
 
     @Builder
     public Food(String name, Long quantity, BigDecimal price, Category category) {
-        log.info("값 {}" , quantity);
             this.name = name;
             this.quantity = quantity;
             this.price = price;

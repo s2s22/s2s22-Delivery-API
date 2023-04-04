@@ -4,6 +4,7 @@ import com.example.demo.domain.Food;
 import com.example.demo.domain.FoodDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Session;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,12 +41,12 @@ public class FoodRepository {
         return em.find(Food.class, foodId);
     }
 
-    @Transactional
-    public void edit(Long foodId, FoodDto foodDto) {
+    public void edit(Long foodId, FoodDto updateDto) {
+        Food byId = findById(foodId);
+        Food updateFood = em.merge(updateDto.toEntity());
 
-        Food food = findById(foodId);
-        log.info("주소 {}", food);
-        foodDto.updateFood(food, foodDto);
+        log.info("영속성 {}" , byId);
+        log.info("영속성2 {}" , updateFood);
     }
 
     public void deleteById(Long foodId) {

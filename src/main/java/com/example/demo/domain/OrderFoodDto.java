@@ -14,6 +14,8 @@ public class OrderFoodDto {
 
     private Food food;
 
+    private OrderStatus orderStatus;
+
     @Builder
     public OrderFood toEntity() {
         return OrderFood.builder()
@@ -23,4 +25,6 @@ public class OrderFoodDto {
                 .food(food)
                 .build();
     }
+
+
 }

@@ -19,6 +19,8 @@ public class FoodDto {
     //가격은
     //수량은...주문에 들어가야할거같다...
 
+    private Long id;
+
     private String name;
 
     private Long quantity; //재고
@@ -27,17 +29,14 @@ public class FoodDto {
 
     private Category category;
 
-    public void updateFood(Food food, FoodDto foodDto) {
-        log.info("야 값 {}", food);
-        food.builder()
-                .name(foodDto.getName())
-                .price(price)
-                .quantity(foodDto.getQuantity())
-                .category(category)
-                .build();
+    @Builder
+    public FoodDto(FoodDto foodDto) {
+        this.name = foodDto.getName();
+        this.quantity = foodDto.getQuantity();
+        this.price = foodDto.getPrice();
+        this.category = foodDto.getCategory();
     }
 
-    @Builder
     //dto -> entity
     public Food toEntity() {
         return Food.builder()
