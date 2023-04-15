@@ -1,9 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.Food;
-import com.example.demo.domain.Order;
-import com.example.demo.domain.OrderFood;
-import com.example.demo.domain.OrderFoodDto;
+import com.example.demo.domain.*;
 import com.example.demo.repository.FoodRepository;
 import com.example.demo.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,11 +29,20 @@ public class OrderService {
 
         orderFoodDto.setOrder(order);
         orderFoodDto.setFood(food);
+        orderFoodDto.setOrderStatus(OrderStatus.READY);
 
         orderRepository.save(orderFoodDto);
     }
 
     public void deleteById(Long orderId) {
+        orderRepository.deleteById(orderId);
+    }
+
+
+    //주문취소 비즈니스 로직 -> order DB 삭제 , 재고 복구 , 주문상태 변경
+    public void cancelOrder(Long orderId) {
+        Order cancelOrder = orderRepository.findById(orderId);
+        cancelOrder.cancelOrder();
         orderRepository.deleteById(orderId);
     }
 }

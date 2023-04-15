@@ -45,6 +45,15 @@ public class FoodService {
 
     @Transactional
     public void edit(Long foodId,FoodDto foodDto) {
-        foodRepository.edit(foodId, foodDto);
+
+        foodDto.setId(foodId);
+        Food food = foodDto.toEntity();
+        Food byId = findById(foodId);
+        FoodDto updateDto = new FoodDto(foodDto);
+
+        log.info("영속성 {}" , byId);
+        log.info("영속성2 {}" , food);
+        log.info("영속성2 {}" , updateDto.toEntity());
+        //foodRepository.edit(foodId, foodDto);
     }
 }
